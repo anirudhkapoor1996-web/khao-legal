@@ -23,7 +23,7 @@
 </head>
 <body>
 <h1>Privacy Policy — <span class="accent">Khao</span></h1>
-<p class="updated">Last updated: 1 August 2026</p>
+<p class="updated">Last updated: 2 August 2026</p>
 
 <p>Khao is designed to be private. This policy explains, in plain language, exactly what
 the app does and does not do with information. It is deliberately short because Khao
@@ -43,6 +43,35 @@ your device</strong>, every time. There is no request to anybody's server in tha
 because there is no server. It is why the app still works with no network at all, and it
 is why nobody, including us, has to be trusted with your allergies.</p>
 
+<h2>The microphone and the camera</h2>
+<p><strong>More → Leftover Remix</strong> lets you <em>speak</em> what is in your fridge,
+or <em>photograph</em> it, instead of typing it. Both are optional, both are used only on
+that one screen, and typing works exactly as it always has. Khao uses the microphone and
+the camera nowhere else in the app.</p>
+<p><strong>Nothing is recorded and nothing is uploaded.</strong></p>
+<ul>
+  <li><strong>Speaking.</strong> Khao uses Apple's speech recognition with
+  <strong>on-device recognition required</strong>. If your iPhone does not have the
+  offline dictation files for the language you are speaking, Khao refuses to listen and
+  tells you so — it does <strong>not</strong> fall back to sending your voice to a server.
+  That is a setting in the code, not a preference you or we can change. No recording is
+  created, no audio file is saved, and nothing is written to storage at any point.</li>
+  <li><strong>Photographing.</strong> Khao reads the picture with Apple's Vision
+  framework, which runs on the phone. It looks for words printed on a packet or jar, and
+  for what the picture appears to contain. The image is not uploaded, not written to disk,
+  and is gone as soon as you leave the screen. If you choose a photo you already have
+  rather than taking a new one, iOS hands Khao that single image out of the system picker
+  — <strong>Khao is never given access to your photo library.</strong></li>
+</ul>
+<p>Khao then shows you what it thought it heard or saw, and <strong>adds nothing until you
+tick it</strong>. The only thing either route can leave behind is the list of ingredient
+names you confirmed, saved to your own kitchen list on this phone, exactly as if you had
+typed them.</p>
+<p>iOS will ask your permission for the microphone, for speech recognition and for the
+camera the first time you use one of these. If you say no, that route stops being offered,
+the app tells you how to turn it back on, and nothing else changes. You can change your
+mind at any time in <strong>Settings → Khao</strong>.</p>
+
 <h2>What stays on your device</h2>
 <p>The following is saved locally on your iPhone or iPad (in the app's own storage) and is
 never transmitted to us:</p>
@@ -52,6 +81,8 @@ never transmitted to us:</p>
   <li>The dishes you like, skip, or mark "never again" (how Khao learns your palate)</li>
   <li>Meals you log, dishes you save for later, and your kitchen/pantry items</li>
   <li>Your meal times and reminder preferences</li>
+  <li>Outstanding household invitations you have created or accepted, and the one-time
+      keys that go with them (see "Inviting someone to your household" below)</li>
 </ul>
 <p>You can see all of it — <strong>You → Privacy &amp; your data → Export my data</strong>
 produces a readable file. That file is created only when you tap the button, it is stored
@@ -59,6 +90,47 @@ inside the app's own private space on the phone, it is left out of iCloud and iT
 backups, and it is deleted again as soon as you leave that screen. You can erase
 everything from <strong>You → Privacy &amp; your data → Delete my data</strong>, which
 also removes any export. Deleting the app removes all of it too.</p>
+
+<h2>Inviting someone to your household</h2>
+<p><strong>Household → Invite by link</strong> lets you send someone a link so they can
+fill in their own diet, allergies and dislikes on their own phone, instead of you
+guessing.</p>
+<p><strong>Nothing about this passes through us, because there is nothing for it to pass
+through.</strong> There is no server, no account, and no database. Everything each phone
+needs travels <em>inside the link itself</em>.</p>
+<ul>
+  <li><strong>The invitation you send</strong> contains only: an identifier for your
+      household, an identifier for the slot being filled, the name you are known by in
+      the app, the name you suggested for them, an expiry date, and a one-time key. It
+      contains <strong>nothing about anybody's diet, allergies or beliefs</strong>.</li>
+  <li><strong>The reply they send back</strong> contains what they filled in — and it is
+      <strong>encrypted</strong> before it leaves their phone, with a key that existed
+      only inside your invitation. Anyone who sees the reply on its own — in a group
+      chat, in a forwarded message, in a phone backup — cannot read it, and cannot even
+      tell which household it belongs to. It also cannot be altered: if a single
+      character changes, your phone refuses it rather than accepting a tampered-with
+      version of somebody's allergies.</li>
+  <li><strong>We never see either one.</strong> We have no way to. The invitation is
+      carried by whatever you choose to send it with — WhatsApp, iMessage, a QR code held
+      across the table — and those apps' own privacy policies apply to the message.</li>
+  <li><strong>If you tap an invitation without the app installed</strong>, you land on a
+      web page offering you the App Store. The invitation sits in the part of the web
+      address after the <code>#</code>, which browsers <strong>never send to a web
+      server</strong> — so the site hosting that page cannot see it even in principle,
+      and it is not stored, logged or forwarded anywhere.</li>
+  <li><strong>Nothing is added to your household until you say so.</strong> Opening a link
+      only shows you what arrived, in plain words; nothing changes until you tap the
+      button.</li>
+  <li><strong>Invitations expire after 30 days.</strong> Removing a household member, or
+      cancelling an invitation, destroys the key on your phone — after which any reply to
+      it can no longer be read at all.</li>
+</ul>
+<p>Two honest limits, stated rather than glossed over. First, anyone who sees
+<em>both</em> the invitation and the reply can read the reply, because the invitation is
+what carries the key; there is no way around that without a server holding a secret, and
+a server holding other people's allergies is precisely what Khao refuses to have. Second,
+an invitation is a message: once sent, you cannot un-send it, in the same way you cannot
+un-send any other message.</p>
 
 <h2>How long it is kept</h2>
 <p>For as long as you keep the app, and not a moment longer. Because Khao holds nothing

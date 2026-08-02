@@ -39,6 +39,23 @@
   }
   .feet{color:#6d675e;font-size:13px;margin-top:26px;line-height:1.9}
   .feet a{color:#6d675e}
+  /* ── Invite hand-off (1.0.4, 2 Aug 2026) ─────────────────────────────────
+     Hidden unless the URL carries a Khao invite in its FRAGMENT. */
+  #invite{display:none}
+  #invite.on{display:block}
+  #normal.off{display:none}
+  .card{
+    border:1px solid rgba(224,163,62,.35); border-radius:16px;
+    padding:18px 16px; margin-bottom:18px; text-align:left;
+  }
+  .card h2{font-family:Georgia,serif;font-style:italic;font-size:22px;margin:0 0 8px;color:var(--gold)}
+  .card p{font-size:15px;color:var(--muted);margin:0 0 10px;line-height:1.6}
+  .steps{font-size:14px;color:var(--muted);margin:14px 0 0;padding-left:20px;line-height:1.8}
+  code#codebox{
+    display:block;word-break:break-all;font-size:11px;line-height:1.5;color:#6d675e;
+    background:rgba(255,255,255,.04); border-radius:10px; padding:10px; margin-top:10px;
+    max-height:88px; overflow:auto;
+  }
 </style>
 </head>
 <body>
@@ -46,8 +63,29 @@
     <h1 class="mark">Khao</h1>
     <div class="rule"></div>
     <p class="tag">Ye khao.</p>
-    <p class="lede">One dish at a time. You decide.</p>
-    <p class="sub">Swipe for ideas. Tap for the recipe.<br>English &amp; Hindi. No account needed.</p>
+
+    <!-- ── Invite hand-off ─────────────────────────────────────────────────────
+         Shown only when the URL carries a Khao invite. -->
+    <div id="invite">
+      <div class="card">
+        <h2 id="ititle">You've been invited</h2>
+        <p id="ibody">Someone would like you to set your own food preferences in Khao — what you eat, what you're allergic to, what you'd rather avoid.</p>
+        <p><strong style="color:var(--ivory)">Nothing has been sent anywhere.</strong> The invitation travels inside this link, and this page never sends it on: everything after the <code style="color:var(--gold)">#</code> in a web address stays in your browser and is never transmitted to any server. Khao has no account and no server at all.</p>
+        <ol class="steps">
+          <li>Install Khao (button below).</li>
+          <li>Come back to this page and tap <strong>Copy invite code</strong>.</li>
+          <li>In Khao: <strong>Household → Invite by link → Paste a reply</strong>.</li>
+        </ol>
+        <code id="codebox"></code>
+      </div>
+      <a class="cta" id="openbtn" href="#">Open in Khao</a>
+      <a class="ghost" id="copybtn" href="#">Copy invite code</a>
+    </div>
+
+    <div id="normal">
+      <p class="lede">One dish at a time. You decide.</p>
+      <p class="sub">Swipe for ideas. Tap for the recipe.<br>English &amp; Hindi. No account needed.</p>
+    </div>
 
     <a class="cta" href="https://apps.apple.com/in/app/khao/id6789647593">Get Khao on the App Store</a>
     <a class="ghost" href="https://www.instagram.com/khao_app/">Instagram</a>
@@ -58,5 +96,101 @@
       © 2026 Anirudh Kapoor
     </p>
   </div>
+
+<script>
+/* ── Khao household invite hand-off · 1.0.4, 2 Aug 2026 ───────────────────────
+ *
+ * WHAT THIS DOES, AND WHAT IT DELIBERATELY DOES NOT.
+ *
+ * A Khao invite is carried entirely inside the URL FRAGMENT — the part after '#'.
+ * Browsers never put a fragment in the HTTP request, so GitHub Pages (which serves
+ * this file) cannot log it even in principle. That is the whole reason the payload
+ * lives there rather than in a query string.
+ *
+ * This script:
+ *   1. reads the fragment,
+ *   2. if it looks like a Khao code, tries to hand it to the installed app via the
+ *      khao:// scheme,
+ *   3. otherwise shows the person how to carry it across an install by hand.
+ *
+ * It does NOT: fetch anything, send anything, set a cookie, store anything, or load
+ * a third-party script. There is nothing on this page that could leak an allergy,
+ * and that is not an accident — a reply link carries someone's health information,
+ * and the only safe amount of it to put on a web server is none.
+ *
+ * ⚠️ THE HONEST LIMIT: iOS GIVES NOTHING TO A FRESHLY INSTALLED APP.
+ * If Khao is not installed, tapping the link opens this page and the App Store. When
+ * the app is finally installed it is launched by the user, not by the link, and iOS
+ * hands it no memory of the URL that sent them here. Deferred deep linking — the
+ * trick that makes this work in other apps — requires a server that fingerprints the
+ * device and remembers the click, which is a tracking server holding invite payloads,
+ * i.e. exactly the thing Khao refuses to have. So the fallback is manual and
+ * spelled out above: copy the code, paste it into the app. It works, it needs no
+ * server, and it is the only route that does.
+ */
+(function () {
+  var raw = (window.location.hash || '').replace(/^#/, '');
+  try { raw = decodeURIComponent(raw); } catch (e) { /* leave as-is */ }
+
+  // Strict shape check before anything reacts to it. K1I = invite, K1R = reply.
+  // Length-capped to match HouseholdLink.maxCodeLength — a 2 MB fragment is not an
+  // invite and should not get as far as being put in the DOM.
+  if (!/^K1[IR][A-Za-z0-9_-]{16,1800}$/.test(raw)) return;
+
+  var isReply = raw.charAt(2) === 'R';
+  document.getElementById('invite').className = 'on';
+  document.getElementById('normal').className = 'off';
+
+  if (isReply) {
+    document.getElementById('ititle').textContent = 'Someone sent you their preferences';
+    document.getElementById('ibody').textContent =
+      'A member of your household has filled in their own diet, allergies and dislikes. ' +
+      'Open this in Khao to add them.';
+  }
+
+  // textContent, never innerHTML: the fragment is attacker-controlled input and this
+  // is the one place on the page it is displayed.
+  document.getElementById('codebox').textContent = raw;
+
+  var appURL = 'khao://open#' + raw;
+  var openBtn = document.getElementById('openbtn');
+  openBtn.setAttribute('href', appURL);
+  openBtn.textContent = isReply ? 'Open in Khao' : 'Open in Khao';
+
+  var copyBtn = document.getElementById('copybtn');
+  copyBtn.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    var done = function () {
+      copyBtn.textContent = 'Copied — now paste it in Khao';
+      setTimeout(function () { copyBtn.textContent = 'Copy invite code'; }, 2600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(raw).then(done, function () { fallbackCopy(raw, done); });
+    } else {
+      fallbackCopy(raw, done);
+    }
+  });
+
+  function fallbackCopy(text, done) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'absolute';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); done(); } catch (e) { /* the code is on screen anyway */ }
+    document.body.removeChild(ta);
+  }
+
+  // Try the app straight away. If Khao is installed iOS switches to it and this page
+  // is never seen; if it is not, nothing visible happens and the instructions above
+  // are already on screen. Deliberately NOT wrapped in a "did it work?" timer that
+  // then forces a redirect to the App Store: that pattern fires a spurious App Store
+  // jump every time iOS is merely slow to switch, and it fires on desktop browsers
+  // too. Showing a button the person can tap is slower by one tap and wrong never.
+  window.setTimeout(function () { window.location.href = appURL; }, 60);
+})();
+</script>
 </body>
 </html>
