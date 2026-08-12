@@ -23,7 +23,7 @@
 </head>
 <body>
 <h1>Privacy Policy — <span class="accent">Khao</span></h1>
-<p class="updated">Last updated: 2 August 2026</p>
+<p class="updated">Last updated: 13 August 2026</p>
 
 <p>Khao is designed to be private. This policy explains, in plain language, exactly what
 the app does and does not do with information. It is deliberately short because Khao
@@ -34,6 +34,11 @@ collects very little.</p>
 preferences, diet, allergies, household, meal times, likes and saved dishes — is stored
 <strong>only on your device</strong>. Khao does not operate a server that receives your
 personal data.</p>
+
+<p><strong>There is exactly one exception, and you have to go and choose it: a dish photo
+you decide to send.</strong> If you photograph something you cooked and submit it, that
+photo — and the name you pick to be credited by — leave your phone. Nothing else does.
+Full details are under "Photos you send us" below.</p>
 
 <h2>The matching happens on your phone</h2>
 <p>This is worth stating plainly rather than leaving you to infer it. Working out which
@@ -138,18 +143,68 @@ about you anywhere except on your own device, there is no second copy sitting on
 with a retention clock running on it. Your settings and history stay on the phone until you
 erase them from <strong>You → Privacy &amp; your data → Delete my data</strong>, or until
 you delete the app — either one removes the lot straight away. The export file is the
-shortest-lived thing here: it exists only while that screen is open. We keep nothing, so
-there is nothing for us to hold on to, and no backup of it for you to ask us about.</p>
+shortest-lived thing here: it exists only while that screen is open. Apart from a dish photo
+you chose to send us — see "Photos you send us" — we keep nothing, so there is nothing for
+us to hold on to, and no backup of it for you to ask us about.</p>
 
 <h2>Notifications</h2>
 <p>If you allow notifications, Khao schedules <strong>local</strong> meal reminders on your
 device. These are generated on the phone; no reminder content is sent through us. Khao does
 not use remote push notifications.</p>
 
-<h2>No images loaded from the internet</h2>
-<p>Khao displays every dish as an illustration drawn on the device. It does not download
-photos from any server, and it contains no analytics, no advertising software and no
-third-party frameworks of any kind.</p>
+<h2>Photos you send us</h2>
+<p>From version 1.0.7, Khao lets you <strong>add your own photo of a dish you cooked</strong>,
+so that the next person deciding what to eat can see what it really looks like when somebody
+makes it at home. This is entirely optional. If you never tap "Add your photo", nothing in
+this section ever happens to you, and nothing about you leaves your phone.</p>
+
+<p>When you do submit a photo, this is exactly what is stored, and where:</p>
+<ul>
+<li><strong>The photograph itself.</strong> It is shrunk on your phone first (to at most
+ 300&nbsp;KB) and then stored in Apple's <strong>CloudKit public database</strong>, in a
+ container we control. It is not sent anywhere else, and it is never sold, licensed or
+ handed to a third party.</li>
+<li><strong>The name you chose to be credited by.</strong> You type this yourself on the
+ submission screen and you can put anything you like in it. Whatever you type
+ <strong>becomes public</strong> next to the photo once it is accepted, so please do not
+ put anything there you would not want strangers to read.</li>
+<li><strong>An opaque iCloud identifier.</strong> Apple gives each app a random,
+ app-specific id for your iCloud account. We store it with the photo so that we can show
+ you your own submissions, so that one person cannot be credited twice for the same photo,
+ and so that a contributor you block stays blocked. <strong>It is not your Apple Account,
+ not your email address and not your name</strong>, we cannot turn it back into any of
+ those, and it is different for every app you use.</li>
+<li><strong>The time you sent it, and its review status.</strong></li>
+</ul>
+
+<p><strong>Nothing else goes with it.</strong> Your diet, your allergies, your household,
+your swipes and your saved dishes stay on your phone exactly as before. A photo submission
+carries no location: Khao strips nothing because it never asks iOS for the location in the
+first place.</p>
+
+<p><strong>Every photo is reviewed by a person before anybody else can see it.</strong>
+Until it is accepted it is visible to nobody but you. If it is accepted it becomes public
+inside Khao, credited to the name you chose. If it is rejected it is not shown to anyone.</p>
+
+<p><strong>Reporting, blocking and removal.</strong> Any published photo can be reported
+from inside the app, and you can block a contributor so you never see their photos again.
+<strong>Anything reported is reviewed and, if it breaks the rules, removed within 24
+hours.</strong> When you report something, we store what you reported, the reason, the time,
+and the same opaque identifier — so that reports can be acted on and abuse of the report
+button can be spotted.</p>
+
+<p><strong>Getting your own photo taken down.</strong> Use <em>More → My photos</em> and
+delete it, or write to
+<a href="mailto:anirudhkapoor1996@gmail.com">anirudhkapoor1996@gmail.com</a> and we will
+remove it within 24 hours. You do not have to give a reason.</p>
+
+<p>Photos and reports are kept for as long as the photo is published. When a photo is
+removed — by you, or by us — the image and its record are deleted.</p>
+
+<h2>No advertising, and no images loaded from anywhere else</h2>
+<p>Apart from the dish photos described above, Khao displays every dish as an illustration
+drawn on the device. It downloads no other photos from any server, and it contains no
+analytics, no advertising software and no third-party frameworks of any kind.</p>
 
 <h2>The one thing Khao downloads</h2>
 <p>So that new dishes can be added without waiting for an app update, Khao checks once per
@@ -157,7 +212,9 @@ launch whether a newer dish list is available. It fetches a single public file o
 <code>raw.githubusercontent.com/anirudhkapoor1996-web/khao-catalog/main/catalog.json</code></p>
 <p><strong>This request contains nothing about you</strong> — no account, no identifier, no
 cookie, no preferences, no search terms, no request body. It is the identical request for
-every user of the app, and it is the only automatic network request Khao makes. The file is
+every user of the app, and it is the only <em>automatic</em> network request Khao makes —
+the dish-photo requests described above happen only on screens you have opened, and only
+if photos have been submitted for that dish. The file is
 a list of recipes and nothing else: Khao downloads no code, and every feature and rule in
 the app is the same before and after.</p>
 <p>The downloaded list is validated on the device before it is used — dish count, unique
