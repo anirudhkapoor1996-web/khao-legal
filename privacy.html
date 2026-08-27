@@ -23,7 +23,7 @@
 </head>
 <body>
 <h1>Privacy Policy — <span class="accent">Khao</span></h1>
-<p class="updated">Last updated: 13 August 2026</p>
+<p class="updated">Last updated: 27 August 2026</p>
 
 <p>Khao is designed to be private. This policy explains, in plain language, exactly what
 the app does and does not do with information. It is deliberately short because Khao
@@ -50,10 +50,14 @@ is why nobody, including us, has to be trusted with your allergies.</p>
 
 <h2>The microphone and the camera</h2>
 <p><strong>More → Leftover Remix</strong> lets you <em>speak</em> what is in your fridge,
-or <em>photograph</em> it, instead of typing it. Both are optional, both are used only on
-that one screen, and typing works exactly as it always has. Khao uses the microphone and
-the camera nowhere else in the app.</p>
-<p><strong>Nothing is recorded and nothing is uploaded.</strong></p>
+or <em>photograph</em> it, instead of typing it. Both are optional, and typing works
+exactly as it always has. From version 1.0.9 the camera is also used in two more places,
+both optional: <strong>Fridge Scan</strong> (photograph your fridge; the photos are read on
+your phone and thrown away — only the ingredient list you confirm is kept, and nothing is
+uploaded) and the <strong>photo contest</strong> (described under "Photos you send us" —
+nothing uploads until you tap send). The microphone is used nowhere but Leftover Remix.</p>
+<p><strong>For Leftover Remix and Fridge Scan, nothing is recorded and nothing is
+uploaded.</strong></p>
 <ul>
   <li><strong>Speaking.</strong> Khao uses Apple's speech recognition with
   <strong>on-device recognition required</strong>. If your iPhone does not have the
@@ -163,7 +167,8 @@ this section ever happens to you, and nothing about you leaves your phone.</p>
 <li><strong>The photograph itself.</strong> It is shrunk on your phone first (to at most
  300&nbsp;KB) and then stored in Apple's <strong>CloudKit public database</strong>, in a
  container we control. It is not sent anywhere else, and it is never sold, licensed or
- handed to a third party.</li>
+ handed to a third party. (Contest entries are the one exception, and only with the
+ separate consent described under "Contest entries" below.)</li>
 <li><strong>The name you chose to be credited by.</strong> You type this yourself on the
  submission screen and you can put anything you like in it. Whatever you type
  <strong>becomes public</strong> next to the photo once it is accepted, so please do not
@@ -179,8 +184,8 @@ this section ever happens to you, and nothing about you leaves your phone.</p>
 
 <p><strong>Nothing else goes with it.</strong> Your diet, your allergies, your household,
 your swipes and your saved dishes stay on your phone exactly as before. A photo submission
-carries no location: Khao strips nothing because it never asks iOS for the location in the
-first place.</p>
+carries no location and no hidden details: before upload the image is re-encoded and
+everything embedded in it — location, timestamps, device details — is removed.</p>
 
 <p><strong>Every photo is reviewed by a person before anybody else can see it.</strong>
 Until it is accepted it is visible to nobody but you. If it is accepted it becomes public
@@ -201,10 +206,49 @@ remove it within 24 hours. You do not have to give a reason.</p>
 <p>Photos and reports are kept for as long as the photo is published. When a photo is
 removed — by you, or by us — the image and its record are deleted.</p>
 
-<h2>No advertising, and no images loaded from anywhere else</h2>
-<p>Apart from the dish photos described above, Khao displays every dish as an illustration
-drawn on the device. It downloads no other photos from any server, and it contains no
-analytics, no advertising software and no third-party frameworks of any kind.</p>
+<h3>Contest entries</h3>
+<p>From version 1.0.9 you can also enter a photo in the <strong>Khao photo contest</strong>.
+A contest entry leaves your phone the same way a dish photo does — only when you tap send,
+and only to the same moderated store, where a person reviews it before anyone else can see
+it. Three things are specific to contest entries. First, you can take the photo in the app
+<strong>or choose one from your photo library</strong>; iOS hands Khao the single image you
+pick, and Khao still cannot see the rest of your library. Second, before upload the image is
+re-encoded and <strong>everything embedded in it is stripped — location, timestamps, device
+details</strong> — and a photo with an identifiable person in it is rejected on your phone
+and never uploaded at all. Third, contest entries — unlike ordinary dish photos —
+<strong>may be used commercially, including being licensed or sold</strong>. We do not bury
+that in fine print: at your first entry you are shown, and must separately tick, this
+consent — <em>"I agree my photo may be sold or licensed commercially, including on
+stock-photo marketplaces."</em> — and until you tick it, nothing uploads. The full licence
+is in the contest rules inside the app. There is still no account and no sign-in: a contest
+entry is tied to the same opaque, app-specific identifier described above, which we cannot
+turn into your name, email, or device.</p>
+
+<h2>Feedback you send</h2>
+<p>From version 1.0.9 there is a <strong>Send feedback</strong> box under More. What you
+type is stored, with the app version and language, in the same Apple CloudKit store the
+photos use, so a person can read it. It carries no name and no email — Khao cannot reply —
+and it rides the same opaque identifier described above. Please don't put personal details
+in the text itself.</p>
+
+<h2>Advertising — in the free version, and never personalised</h2>
+<p>From version 1.0.9, the free version of Khao shows one kind of advertisement: an
+optional ad on the screen you see after finishing a cook flow, which you can choose to
+watch. Ads never appear while you are choosing what to eat or while you are cooking.
+<strong>Khao+ subscribers see no ads at all, anywhere in the app.</strong></p>
+<p>Ads are served by Google AdMob, and Khao requests <strong>non-personalised, contextual
+serving on every ad call</strong>. That means an ad is picked for the screen it appears on,
+not for you. Khao sends Google nothing about you — no name, no email, no diet, no
+allergies, no history of what you cooked or ordered; Khao does not even hold most of those
+off your phone. Like any internet request, an ad request reaches Google's servers and
+carries coarse, non-identifying facts: the kind of device you are using and your
+approximate region, which is what contextual serving works from. Khao does no tracking, so
+it never shows Apple's tracking permission prompt — there is nothing to ask about. What
+Google does with the requests it receives is described in Google's own privacy policy.</p>
+<p>Apart from those ad creatives and the dish photos described above, Khao still displays
+every dish as an illustration drawn on the device, downloads no other images from any
+server, and contains no analytics.</p>
+
 
 <h2>The one thing Khao downloads</h2>
 <p>So that new dishes can be added without waiting for an app update, Khao checks once per
@@ -234,7 +278,8 @@ tap. Anything you do there is governed by their privacy policies, not this one.<
 <p>Khao is not directed at children and does not knowingly collect information from them.
 Under India's Digital Personal Data Protection Act, 2023, a child is anyone <strong>under
 18 years of age</strong>. Khao has no account, collects no age information and builds no
-profile of any user, so it does not track or profile children — or anyone else.</p>
+profile of any user, so it does not track or profile children — or anyone else. Advertising in the free
+version is contextual and never personalised — for children or for anyone else.</p>
 
 <h2>Your rights</h2>
 <p>Under India's Digital Personal Data Protection Act, 2023, you have the right to know what
@@ -251,8 +296,10 @@ usually much sooner. If you are not satisfied with the response, you may complai
 Data Protection Board of India.</p>
 
 <h2>Data we sell or share</h2>
-<p>None. Khao does not sell, rent, or share your personal data with third parties, for
-advertising or for any other purpose. <strong>Your diet, allergies, household and swipes
+<p>None, with one consent-gated exception: <strong>contest photos</strong> — see
+"Contest entries" above; they carry no name, no location and no identifiable person, and
+nothing uploads without the separate tick. Beyond that, Khao does not sell, rent, or share
+your personal data with third parties, for advertising or for any other purpose. <strong>Your diet, allergies, household and swipes
 are never used to target advertising</strong> — that is a limit built into how the app
 works, not a promise about what is on the screen today, and it does not expire.</p>
 
