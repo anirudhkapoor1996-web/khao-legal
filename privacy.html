@@ -49,28 +49,34 @@ because there is no server. It is why the app still works with no network at all
 is why nobody, including us, has to be trusted with your allergies.</p>
 
 <h2>The microphone and the camera</h2>
-<p><strong>More → Leftover Remix</strong> lets you <em>speak</em> what is in your fridge,
-or <em>photograph</em> it, instead of typing it. Both are optional, and typing works
-exactly as it always has. From version 1.0.9 the camera is also used in two more places,
-both optional: <strong>Fridge Scan</strong> (photograph your fridge; the photos are read on
-your phone and thrown away — only the ingredient list you confirm is kept, and nothing is
-uploaded) and the <strong>photo contest</strong> (described under "Photos you send us" —
-nothing uploads until you tap send). The microphone is used nowhere but Leftover Remix.</p>
-<p><strong>For Leftover Remix and Fridge Scan, nothing is recorded and nothing is
-uploaded.</strong></p>
+<p>Khao lets you <em>speak</em> what is in your fridge, or <em>photograph</em> it, instead of
+typing it. Both are optional, and typing works exactly as it always has — on every screen where
+one of these is offered, the typing field is offered beside it. On iPhone and iPad this lives in
+<strong>More → Leftover Remix</strong>; on Android it is on your <strong>kitchen list</strong>.
+The camera is also used in two more places, both optional: <strong>Fridge Scan</strong>
+(photograph your fridge; the photos are read on your phone and thrown away — only the
+ingredient list you confirm is kept, and nothing is uploaded) and the <strong>photo contest</strong>
+(described under "Photos you send us" — nothing uploads until you tap send). <strong>The
+microphone is used nowhere else in the app.</strong></p>
+<p><strong>Except for a photo you deliberately send to the contest, nothing here is recorded
+and nothing is uploaded.</strong></p>
 <ul>
   <li><strong>Speaking.</strong> Khao uses your phone's own speech recognition — Apple's
   on iPhone and iPad, Android's on Android — with <strong>on-device recognition
   required</strong> on both. If your phone does not have the
-  offline dictation files for the language you are speaking, Khao refuses to listen and
-  tells you so — it does <strong>not</strong> fall back to sending your voice to a server.
+  offline dictation files for the language you are speaking — or, on older Android versions,
+  no on-device dictation at all — Khao refuses to listen and tells you so; it does
+  <strong>not</strong> fall back to sending your voice to a server.
   That is a setting in the code, not a preference you or we can change. No recording is
   created, no audio file is saved, and nothing is written to storage at any point.</li>
   <li><strong>Photographing.</strong> Khao reads the picture with your phone's own
   on-device image recognition — Apple's Vision framework on iPhone and iPad, Google's ML Kit
   on Android — which runs on the phone. It looks for words printed on a packet or jar, and
-  for what the picture appears to contain. The image is not uploaded, not written to disk,
-  and is gone as soon as you leave the screen. If you choose a photo you already have
+  for what the picture appears to contain. The image is <strong>never uploaded</strong>. On
+  iPhone and iPad it is held in memory only; on Android a photograph you take is written to
+  Khao's own private cache — the folder your phone's camera app hands it back through, which
+  no other app on the device can read — and Khao deletes it when you leave the screen. Either
+  way it never reaches your photo library and it never leaves the phone. If you choose a photo you already have
   rather than taking a new one, your phone hands Khao that single image out of the system picker
   — <strong>Khao is never given access to your photo library.</strong></li>
 </ul>
@@ -78,10 +84,17 @@ uploaded.</strong></p>
 tick it</strong>. The only thing either route can leave behind is the list of ingredient
 names you confirmed, saved to your own kitchen list on this phone, exactly as if you had
 typed them.</p>
-<p>Your phone will ask your permission for the microphone, for speech recognition and for
-the camera the first time you use one of these. If you say no, that route stops being offered,
-the app tells you how to turn it back on, and nothing else changes. You can change your
-mind at any time in your phone's own settings for Khao.</p>
+<p><strong>What your phone asks you for differs by platform, because Khao asks for the least
+it can on each.</strong> On iPhone and iPad, your phone asks for the microphone, for speech
+recognition and for the camera, the first time you use one of these. <strong>On Android, Khao
+asks only for the microphone</strong> — and separately, only if you switch meal reminders on,
+for permission to send you notifications. It does <strong>not</strong> request camera
+permission and it does <strong>not</strong> request access to your photos, because a new
+photograph is taken by your phone's own camera app and a photo you already have is handed over
+by your phone's own picker; neither gives Khao your camera or your photo library. If you say no
+to anything, that route stops being offered, the app tells you how to turn it back on, and
+nothing else changes. You can change your mind at any time in your phone's own settings for
+Khao.</p>
 
 <h2>What stays on your device</h2>
 <p>The following is saved locally on your iPhone, iPad or Android phone (in the app's own
@@ -235,9 +248,22 @@ in the text itself.</p>
 
 <h2>Advertising — in the free version, and never personalised</h2>
 <p>From version 1.0.9 on iPhone and iPad, and from the first release on Android, the free
-version of Khao shows one kind of advertisement: an
-optional ad on the screen you see after finishing a cook flow, which you can choose to
-watch. Ads never appear while you are choosing what to eat or while you are cooking.
+version of Khao shows advertisements in <strong>two places, and nowhere else</strong>:</p>
+<ul>
+  <li><strong>After you have chosen a dish and asked for the recipe</strong> — a single ad
+  sits between the choice and the method, and you can skip it after ten seconds.</li>
+  <li><strong>On the screen you see after handing an order off</strong> to Swiggy or Zomato,
+  while you wait for it.</li>
+</ul>
+<p><strong>Every ad is labelled as an ad</strong>, on both platforms and in both languages,
+and it is never dressed up as part of Khao. Ads never appear while you are browsing dishes,
+and never inside a recipe you are cooking from. If no ad is available the space is not held
+open — the frame disappears entirely rather than leaving a gap that looks like something
+failed to load.</p>
+<p>The screen you see after handing off an order also offers a <strong>scratch card</strong>,
+once a day. That is a reward, not an advertisement: it is Khao's own, it sells nothing, no
+third party is involved and nothing about you is sent anywhere to produce it — and one of
+the things it can give you is a day with no ads at all.
 <strong>Khao+ subscribers see no ads at all, anywhere in the app.</strong></p>
 <p>Ads are served by Google AdMob, and Khao requests <strong>non-personalised, contextual
 serving on every ad call</strong>. That means an ad is picked for the screen it appears on,
