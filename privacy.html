@@ -23,11 +23,11 @@
 </head>
 <body>
 <h1>Privacy Policy — <span class="accent">Khao</span></h1>
-<p class="updated">Last updated: 27 August 2026</p>
+<p class="updated">Last updated: 30 August 2026</p>
 
 <p>Khao is designed to be private. This policy explains, in plain language, exactly what
 the app does and does not do with information. It is deliberately short because Khao
-collects very little.</p>
+collects very little. It covers Khao on iPhone, iPad and Android.</p>
 
 <h2>The short version</h2>
 <p>Khao has no account system and no analytics. Everything you do in the app — your taste
@@ -59,31 +59,33 @@ nothing uploads until you tap send). The microphone is used nowhere but Leftover
 <p><strong>For Leftover Remix and Fridge Scan, nothing is recorded and nothing is
 uploaded.</strong></p>
 <ul>
-  <li><strong>Speaking.</strong> Khao uses Apple's speech recognition with
-  <strong>on-device recognition required</strong>. If your iPhone does not have the
+  <li><strong>Speaking.</strong> Khao uses your phone's own speech recognition — Apple's
+  on iPhone and iPad, Android's on Android — with <strong>on-device recognition
+  required</strong> on both. If your phone does not have the
   offline dictation files for the language you are speaking, Khao refuses to listen and
   tells you so — it does <strong>not</strong> fall back to sending your voice to a server.
   That is a setting in the code, not a preference you or we can change. No recording is
   created, no audio file is saved, and nothing is written to storage at any point.</li>
-  <li><strong>Photographing.</strong> Khao reads the picture with Apple's Vision
-  framework, which runs on the phone. It looks for words printed on a packet or jar, and
+  <li><strong>Photographing.</strong> Khao reads the picture with your phone's own
+  on-device image recognition — Apple's Vision framework on iPhone and iPad, Google's ML Kit
+  on Android — which runs on the phone. It looks for words printed on a packet or jar, and
   for what the picture appears to contain. The image is not uploaded, not written to disk,
   and is gone as soon as you leave the screen. If you choose a photo you already have
-  rather than taking a new one, iOS hands Khao that single image out of the system picker
+  rather than taking a new one, your phone hands Khao that single image out of the system picker
   — <strong>Khao is never given access to your photo library.</strong></li>
 </ul>
 <p>Khao then shows you what it thought it heard or saw, and <strong>adds nothing until you
 tick it</strong>. The only thing either route can leave behind is the list of ingredient
 names you confirmed, saved to your own kitchen list on this phone, exactly as if you had
 typed them.</p>
-<p>iOS will ask your permission for the microphone, for speech recognition and for the
-camera the first time you use one of these. If you say no, that route stops being offered,
+<p>Your phone will ask your permission for the microphone, for speech recognition and for
+the camera the first time you use one of these. If you say no, that route stops being offered,
 the app tells you how to turn it back on, and nothing else changes. You can change your
-mind at any time in <strong>Settings → Khao</strong>.</p>
+mind at any time in your phone's own settings for Khao.</p>
 
 <h2>What stays on your device</h2>
-<p>The following is saved locally on your iPhone or iPad (in the app's own storage) and is
-never transmitted to us:</p>
+<p>The following is saved locally on your iPhone, iPad or Android phone (in the app's own
+storage) and is never transmitted to us:</p>
 <ul>
   <li>Your language, diet, allergen and dislike settings</li>
   <li>Household members and their individual diets and allergies</li>
@@ -96,7 +98,7 @@ never transmitted to us:</p>
 <p>You can see all of it — <strong>You → Privacy &amp; your data → Export my data</strong>
 produces a readable file. That file is created only when you tap the button, it is stored
 inside the app's own private space on the phone, it is left out of iCloud and iTunes
-backups, and it is deleted again as soon as you leave that screen. You can erase
+backups and out of Android's cloud backup, and it is deleted again as soon as you leave that screen. You can erase
 everything from <strong>You → Privacy &amp; your data → Delete my data</strong>, which
 also removes any export. Deleting the app removes all of it too.</p>
 
@@ -123,7 +125,7 @@ needs travels <em>inside the link itself</em>.</p>
       carried by whatever you choose to send it with — WhatsApp, iMessage, a QR code held
       across the table — and those apps' own privacy policies apply to the message.</li>
   <li><strong>If you tap an invitation without the app installed</strong>, you land on a
-      web page offering you the App Store. The invitation sits in the part of the web
+      web page offering you the App Store or Google Play. The invitation sits in the part of the web
       address after the <code>#</code>, which browsers <strong>never send to a web
       server</strong> — so the site hosting that page cannot see it even in principle,
       and it is not stored, logged or forwarded anywhere.</li>
@@ -153,7 +155,7 @@ us to hold on to, and no backup of it for you to ask us about.</p>
 
 <h2>Notifications</h2>
 <p>If you allow notifications, Khao schedules <strong>local</strong> meal reminders on your
-device. These are generated on the phone; no reminder content is sent through us. Khao does
+device — one about 45 minutes before each of the meal times you have set. These are generated on the phone; no reminder content is sent through us. Khao does
 not use remote push notifications.</p>
 
 <h2>Photos you send us</h2>
@@ -211,7 +213,7 @@ removed — by you, or by us — the image and its record are deleted.</p>
 A contest entry leaves your phone the same way a dish photo does — only when you tap send,
 and only to the same moderated store, where a person reviews it before anyone else can see
 it. Three things are specific to contest entries. First, you can take the photo in the app
-<strong>or choose one from your photo library</strong>; iOS hands Khao the single image you
+<strong>or choose one from your photo library</strong>; your phone hands Khao the single image you
 pick, and Khao still cannot see the rest of your library. Second, before upload the image is
 re-encoded and <strong>everything embedded in it is stripped — location, timestamps, device
 details</strong> — and a photo with an identifiable person in it is rejected on your phone
@@ -232,7 +234,8 @@ and it rides the same opaque identifier described above. Please don't put person
 in the text itself.</p>
 
 <h2>Advertising — in the free version, and never personalised</h2>
-<p>From version 1.0.9, the free version of Khao shows one kind of advertisement: an
+<p>From version 1.0.9 on iPhone and iPad, and from the first release on Android, the free
+version of Khao shows one kind of advertisement: an
 optional ad on the screen you see after finishing a cook flow, which you can choose to
 watch. Ads never appear while you are choosing what to eat or while you are cooking.
 <strong>Khao+ subscribers see no ads at all, anywhere in the app.</strong></p>
@@ -243,7 +246,11 @@ allergies, no history of what you cooked or ordered; Khao does not even hold mos
 off your phone. Like any internet request, an ad request reaches Google's servers and
 carries coarse, non-identifying facts: the kind of device you are using and your
 approximate region, which is what contextual serving works from. Khao does no tracking, so
-it never shows Apple's tracking permission prompt — there is nothing to ask about. What
+on iPhone and iPad it never shows Apple's tracking permission prompt — there is nothing to
+ask about. On Android, an ad request carries your device's <strong>resettable advertising
+ID</strong>, which Google uses for things like frequency capping and fraud prevention; you can
+reset it, or switch off ad personalisation entirely, at any time in Android's own settings.
+Khao sends Google nothing else about you on either platform. What
 Google does with the requests it receives is described in Google's own privacy policy.</p>
 <p>Apart from those ad creatives and the dish photos described above, Khao still displays
 every dish as an illustration drawn on the device, downloads no other images from any
