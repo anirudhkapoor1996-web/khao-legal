@@ -1,0 +1,10 @@
+<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Khao - linking Swiggy</title>
+<meta name=robots content=noindex>
+<style>body{font:16px -apple-system,system-ui,sans-serif;background:#fffaf3;color:#1d1a16;display:flex;min-height:90vh;align-items:center;justify-content:center;text-align:center;padding:24px}a{color:#e4572e}</style>
+<div><h2>Back to Khao…</h2><p id=m>Finishing your Swiggy link.</p><p><a id=a href=#>Open Khao</a></p></div>
+<script>
+// Swiggy sends the user here after sign-in (OAuth 2.1 + PKCE). The code is useless without the verifier that only the Khao app holds,
+// so this page simply hands code + state back to the app. Nothing is stored or logged here.
+var q=location.search||'';var u='khao://swiggy-callback'+q;document.getElementById('a').href=u;
+if(!/[?&](code|error)=/.test(q)){document.getElementById('m').textContent='Nothing to finish here.';}else{location.replace(u);}
+</script>
